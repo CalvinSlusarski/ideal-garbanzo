@@ -18,7 +18,10 @@ steps:
   inputs:
     command: 'import'
     environmentServiceName: 'Visual Studio Premium with MSDN(618a31e4-cac6-4a81-a8cd-116490179a7d)'
-    allowTelemetryCollection: false
+    runAzLogin: true
+    allowTelemetryCollection: true
+    resourceAddress: '312313'
+    resourceId: '1234'
 - task: TerraformCLI@0
   inputs:
     command: 'init'
