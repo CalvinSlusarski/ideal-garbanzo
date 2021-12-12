@@ -10,12 +10,20 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: TerraformCLI@0
+- task: TerraformInstaller@0
   inputs:
-    command: 'init'
-    allowTelemetryCollection: true
+    terraformVersion: 'latest'
 
 - task: TerraformCLI@0
   inputs:
+    command: 'import'
+    environmentServiceName: 'Visual Studio Premium with MSDN(618a31e4-cac6-4a81-a8cd-116490179a7d)'
+    allowTelemetryCollection: false
+- task: TerraformCLI@0
+  inputs:
+    command: 'init'
+    allowTelemetryCollection: false
+- task: TerraformCLI@0
+  inputs:
     command: 'plan'
-    allowTelemetryCollection: true
+    allowTelemetryCollection: false
